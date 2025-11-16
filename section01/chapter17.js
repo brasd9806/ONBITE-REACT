@@ -23,4 +23,4 @@ let item2 = arrC[1];
 arrC[0] = "hi";
 
 console.log(item1, item2); // 1, 2
-console.log(arrC); cd
+console.log(arrC);
