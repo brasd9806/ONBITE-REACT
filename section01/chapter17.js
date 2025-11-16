@@ -2,7 +2,8 @@
 let arrA = new Array() // 배열 생성자
 let arrB = []; // 배열 리터럴 (대부분 사용)
 
-let arrC = [1,
+let arrC = [
+    1,
     2,
     3,
     true,
@@ -22,4 +23,4 @@ let item2 = arrC[1];
 arrC[0] = "hi";
 
 console.log(item1, item2); // 1, 2
-console.log(arrC); 
+console.log(arrC); cd
