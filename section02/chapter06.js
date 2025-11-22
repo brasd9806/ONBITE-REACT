@@ -60,4 +60,3 @@ for(let key in person){
 // => 여기서 주의할점! 
 // ★ for of는 배열 순회, for in는 객체 순회에서만 사용가능하다!
 
-zzz
