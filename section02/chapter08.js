@@ -73,5 +73,3 @@ const finded = arr5.find((item) => item.name === "홍길동");
 
 console.log(finded); // {name : '홍길동'} 
 
-
-
