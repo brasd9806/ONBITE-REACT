@@ -43,6 +43,7 @@ function App() {
     setTodos([newTodo,...todos]);
   };
 
+  // 체크박스 수정 기능
   const onUpdate = (targetId) => {
     // todos State의 값들 중에
     // targetId와 일치하는 id를 갖는 투두 아이템의 isDone 변경
@@ -53,11 +54,21 @@ function App() {
         ? {...todo, isDone:!todo.isDone} : todo));
   };
 
+
+  // 삭제 기능
+  const onDelete = (targetId) => {
+    // 인수 : todos 배열에서 targetId와 일치하는 id를 갖는 요소만 삭제한 새로운 배열
+    // 삭제대상이 아닌 요소만 필터링하도록
+    setTodos(todos.filter((todo) => todo.id !== targetId));
+  }
+
   return (
     <div className='App'>
       <Header />
       <Editor onCreate={onCreate}/>
-      <List todos={todos} onUpdate={onUpdate}/>
+      <List todos={todos} 
+            onUpdate={onUpdate}
+            onDelete={onDelete}/>
     </div>
   )
 }
