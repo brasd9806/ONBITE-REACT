@@ -2,7 +2,7 @@ import "./List.css";
 import TodoItem from "./TodoItem";
 import {useState} from 'react';
 
-const List = ({todos}) => {
+const List = ({todos, onUpdate}) => {
     // 검색한 값
     const [search, setSearch] = useState("");
 
@@ -36,7 +36,13 @@ const List = ({todos}) => {
                 {/* 배열에 담긴 값(todos)을 리스트 형태로 반복적으로 렌더링 */}
                 {/* 컴포넌트에 반드시 key라는 고유한 값으로 전달해줘야함 */}
                 {filteredTodos.map((todo)=> {
-                    return <TodoItem key={todo.id} {...todo}/>;
+                    return (
+                        <TodoItem 
+                            key={todo.id} 
+                            {...todo}
+                            onUpdate={onUpdate}
+                        />
+                    )
                 })}
             </div>
         </div>
