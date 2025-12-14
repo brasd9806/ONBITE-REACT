@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/Header';
 import List from './components/List';
 import Editor from './components/Editor';
-import {useState, useRef, useReducer} from 'react';
+import {useState, useRef, useReducer, useCallback} from 'react';
 import Exam from './components/Exam';
 
 // 임시데이터
@@ -49,7 +49,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
+  const onCreate = useCallback((content) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -59,24 +59,24 @@ function App() {
         date: new Date().getTime(),
       }
     })
-  };
+  },[]);
 
   // 체크박스 수정 기능
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
       dispatch({
         type:"UPDATE",
         targetId: targetId
       })
-  };
+  }, []);
 
 
   // 삭제 기능
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       targetId: targetId
     })
-  }
+  },[]);
 
   return (
     <div className='App'>
